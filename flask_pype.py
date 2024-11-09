@@ -199,20 +199,14 @@ class Lang:
     def parse_code(self, code):
         self.command = code.split("|")
 
-    def print_letter(self, letter_matrix):
-        # Generate each row of the ASCII representation for a letter
-        rows = []
-        for row in letter_matrix:
-            line = ''.join(['#' if col == 1 else ' ' for col in row])
-            rows.append(line)
-        return rows  # Return as a list of strings, one per row
-
     def interpret_code(self, code):
         self.parse_code(code)
         com = self.command[0]
         
         if len(self.command) < 2:
             return "Error: Invalid input. Format should be 'P|[input]' or 'Pr|[input]'."
+        elif len(self.command) > 2:
+            return "Error: '|' is not a valid character to use"
         
         match com:
             case "P":
