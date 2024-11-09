@@ -32,6 +32,11 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
+h2{
+    margin-bottom: 2.5rem;
+    margin-top: -1.5rem;
+}
+
 p {
     font-size: 1.1rem;
     color: #5f6368;
@@ -69,7 +74,7 @@ button:hover {
 
 .result-container {
     margin-top: 2rem;
-    padding: 5rem;
+    padding: 2rem;
     background-color: #f9f9f9;
     border: 2px solid #ddd;
     border-radius: 8px;
