@@ -2,27 +2,27 @@
 
 # Wrap functionality around class
 class Lang:
-    def __init__(self, left_delim, right_delim):
-        self.left_delim = left_delim
-        self.right_delim = right_delim
+    def __init__(self):
+        self.command = ""
+    
+    def parse_code(self, code):
+        self.command = code.split("|")
+        print(self.command)
 
     def interpret_code(self, code):
-        if code.startswith('P '):
-            # extract text
-            try:
-                text = code[2:].strip().strip(self.left_delim).strip(self.right_delim)
-                return text
-            except:
-                print("Error: Unknown command")
-        else:
-                print("Error: Unknown command")
+        self.parse_code(code)
+        com = self.command[0]
+        match com:
+            case "P":
+                print(self.command[1])
+            case "Pr":
+                print(self.command[1][::-1])
 
 print(""" Syntax:
-      P <[input]> -> prints out [input]
+      P|[input] -> prints out [input]
+      Pr|[input] -> prints out [input] in reverse
 """)
 someCode = input()
 
-test = Lang('<', '>')
-
+test = Lang()
 res = test.interpret_code(someCode)
-print(res)
