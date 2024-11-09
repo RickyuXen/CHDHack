@@ -52,8 +52,9 @@ p {
 }
 
 button {
+    margin: 0.5rem;
     padding: 0.5rem 1.5rem;
-    font-size: 3rem;
+    font-size: 2rem;
     background-color: #4CAF50;
     color: #fff;
     border: none;
@@ -68,10 +69,11 @@ button:hover {
 
 .result-container {
     margin-top: 2rem;
-    padding: 1rem;
+    padding: 5rem;
     background-color: #f9f9f9;
     border: 2px solid #ddd;
     border-radius: 8px;
+
 }
 
 #result {
