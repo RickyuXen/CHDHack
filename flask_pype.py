@@ -93,7 +93,7 @@ class Lang:
             # Extract the index number
                 varNumber = int(match.group(1))
                 if 0 <= varNumber < len(vars):
-                    return f"The variable stored is: {vars[varNumber]}"
+                    return f"The variable stored at memory {varNumber}: {vars[varNumber]}"
                 else:
                     return f"Error: No variable found at slot {varNumber}"
             case _:
