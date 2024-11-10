@@ -223,6 +223,13 @@ class Lang:
                 values = self.command[1].split(' ')
                 casted = [int(val) for val in values]
                 return sum(casted)
+            case "-":
+                values = self.command[1].split(' ')
+                casted = [int(val) for val in values]
+                result = casted[0]
+                for i in range(1, len(casted)):
+                    result -= casted[i]
+                return result
             case _:
                 return "Error: Unknown command. Please check syntax page to ensure you have done it correctly."
 
