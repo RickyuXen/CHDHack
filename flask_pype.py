@@ -87,7 +87,7 @@ class Lang:
                 return f"Successfully stored value in variable slot {len(vars) - 1}"
             # call list of stored values
             case "SS":
-                return vars
+                return vars[1:]
             # call stored object function
             case command if (match := re.match(r"S(\d+)", command)):
             # Extract the index number
