@@ -213,6 +213,16 @@ class Lang:
                 return self.command[1]
             case "Pr":
                 return self.command[1][::-1]
+            case "Pri":
+                return self.command[1][::-1][::-1]
+            case "Prin": 
+                return self.command[1][::-1][::-1][::-1]
+            case "Print": 
+                return self.command[1][::-1][::-1][::-1][::-1]
+            case "+":
+                values = self.command[1].split(' ')
+                casted = [int(val) for val in values]
+                return sum(casted)
             case _:
                 return "Error: Unknown command. Please check syntax page to ensure you have done it correctly."
 
