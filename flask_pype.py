@@ -53,12 +53,12 @@ class Lang:
                 return self.command[1][::-1][::-1][::-1][::-1]
             # addition function
             case "+":
-                values = self.command[1].split(' ')
+                values = self.command[1].strip().split(' ')
                 casted = [int(val) for val in values]
                 return sum(casted)
             # subtraction function
             case "-":
-                values = self.command[1].split(' ')
+                values = self.command[1].strip().split(' ')
                 casted = [int(val) for val in values]
                 result = casted[0]
                 for i in range(1, len(casted)):
@@ -66,7 +66,7 @@ class Lang:
                 return result
             # multiplication function
             case "*":
-                values = self.command[1].split(' ')
+                values = self.command[1].strip().split(' ')
                 casted = [int(val) for val in values]
                 result = casted[0]
                 for i in range(1, len(casted)):
