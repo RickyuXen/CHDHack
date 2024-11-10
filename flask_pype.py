@@ -64,11 +64,30 @@ class Lang:
                 for i in range(1, len(casted)):
                     result -= casted[i]
                 return result
+            # multiplication function
+            case "*":
+                values = self.command[1].split(' ')
+                casted = [int(val) for val in values]
+                result = casted[0]
+                for i in range(1, len(casted)):
+                    result *= casted[i]
+                return result
+            # division function
+            case "/":
+                values = self.command[1].split(' ')
+                casted = [int(val) for val in values]
+                result = casted[0]
+                for i in range(1, len(casted)):
+                    result /= casted[i]
+                return result
             # store function
             case "S":  
                 # Store variable in list
                 vars.append(self.command[1])
                 return f"Successfully stored value in variable slot {len(vars) - 1}"
+            # call list of stored values
+            case "SS":
+                return vars
             # call stored object function
             case command if (match := re.match(r"S(\d+)", command)):
             # Extract the index number
