@@ -13,8 +13,11 @@
 
       body {
         font-family: Arial, sans-serif;
-        background-color: #3e566c;
-        color: #333;
+        background-image: url("./assets/alotofpipes.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: blue;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -23,7 +26,7 @@
       }
 
       .container {
-        background-color: #fff;
+        background-color: #ffffffb7;
         padding: 2rem;
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -77,26 +80,28 @@
         <p>P|[input] -> prints out [input]</p>
         <p>Pr|[input] -> prints out [input] in reverse</p>
         <p>Pri|[input] -> prints out [input] in reverse in reverse</p>
-        <p>Prin|[input] -> prints out [input] in reverse in reverse in reverse</p>
         <p>
-            Print|[input] -> prints out [input] in reverse in reverse in reverse in
-            reverse
+          Prin|[input] -> prints out [input] in reverse in reverse in reverse
         </p>
         <p>
-            +|[input] -> adds up all numerical values separated by a space, e.g. +|2
-            3 1 -> 6
+          Print|[input] -> prints out [input] in reverse in reverse in reverse
+          in reverse
         </p>
         <p>
-            -|[input] -> subtracts all numerical values separated by a space,
-            starting from the initial e.g. -|20 5 10 -> 5
+          +|[input] -> adds up all numerical values separated by a space, e.g.
+          +|2 3 1 -> 6
         </p>
         <p>
-            *|[input] -> multiplies all numerical values separated by a space,
-            starting from the initial e.g. *|3 2 2 -> 12
+          -|[input] -> subtracts all numerical values separated by a space,
+          starting from the initial e.g. -|20 5 10 -> 5
         </p>
         <p>
-            /|[input] -> divides all numerical values separated by a space,
-            starting from the initial e.g. /|12 2 3 -> 2
+          *|[input] -> multiplies all numerical values separated by a space,
+          starting from the initial e.g. *|3 2 2 -> 12
+        </p>
+        <p>
+          /|[input] -> divides all numerical values separated by a space,
+          starting from the initial e.g. /|12 2 3 -> 2
         </p>
         <p>S|[input] -> saves [input]</p>
         <p>SS| -> prints out all saved [input]</p>
