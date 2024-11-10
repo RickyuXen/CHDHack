@@ -1,15 +1,18 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import re
 
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)  # This will allow all origins by default
 
+# Global variable to store variables
+vars = ["Why did you try to get the 0th index?"]
+
 # Your Lang class
 class Lang:
     def __init__(self):
         self.command = ""
-        self.vars = ["Why did you try to get the 0th index?"]
     
     def parse_code(self, code):
         self.command = code.split("|")
@@ -51,10 +54,16 @@ class Lang:
                 return result
             case "S":  
                 # Store variable in list
-                self.vars.append(self.command[1])
-                return f"Successfully stored value in variable slot {len(self.vars - 1)}"
+                vars.append(self.command[1])
+                return f"Successfully stored value in variable slot {len(vars) - 1}"
             # How are we going to extract S(#)?
-
+            case command if (match := re.match(r"S(\d+)", command)):
+            # Extract the index number
+                varNumber = int(match.group(1))
+                if 0 <= varNumber < len(vars):
+                    return f"The variable stored is: {vars[varNumber]}"
+                else:
+                    return f"Error: No variable found at slot {varNumber}"
             case _:
                 return "Error: Unknown command. Please check syntax page to ensure you have done it correctly."
 
