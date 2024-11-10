@@ -15,7 +15,7 @@ class Lang:
 
     def interpret_code(self, code):
         self.parse_code(code)
-        com = self.command[0]
+        com = self.command[0].strip()
         
         
         if len(self.command) < 2:
