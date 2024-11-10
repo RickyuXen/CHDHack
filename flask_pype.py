@@ -17,11 +17,15 @@ class Lang:
         self.parse_code(code)
         com = self.command[0]
         
+        
         if len(self.command) < 2:
             return "Error: Invalid input. Please check syntax page to ensure you have done it correctly."
         elif len(self.command) > 2:
             return "Error: '|' is not a valid character to use"
         
+        # trim off blank spaces from front and end
+        self.command[1].strip()
+
         match com:
             case "P":
                 return self.command[1]
