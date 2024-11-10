@@ -40,11 +40,11 @@ h2{
 p {
     font-size: 1.1rem;
     color: #5f6368;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 #command-form {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 #command-input {
@@ -73,7 +73,6 @@ button:hover {
 }
 
 .result-container {
-    margin-top: 2rem;
     padding: 2rem;
     background-color: #f9f9f9;
     border: 2px solid #ddd;

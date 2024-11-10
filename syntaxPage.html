@@ -1,87 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Syntax for Pype</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #3e566c;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #3e566c;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
 
-        .container {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
-        }
+      .container {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+      }
 
-        h1 {
-            font-size: 2.5rem;
-            color: #5f6368;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
+      h1 {
+        font-size: 2.5rem;
+        color: #5f6368;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
 
-        p {
-            text-align: left;
-            font-size: 1.1rem;
-            color: #5f6368;
-            margin-bottom: 1.5rem;
-        }
+      p {
+        text-align: left;
+        font-size: 1.1rem;
+        color: #5f6368;
+        margin-bottom: 0.5rem;
+      }
 
-        button {
-            justify-content: center;
-            align-items: center;
-            margin: 0.5rem;
-            padding: 0.5rem 1.5rem;
-            font-size: 2rem;
-            background-color: green;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+      button {
+        justify-content: center;
+        align-items: center;
+        margin: 0.5rem;
+        padding: 0.5rem 1.5rem;
+        font-size: 2rem;
+        background-color: green;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-        button:hover {
-            background-color: lightgreen;
-        }
+      button:hover {
+        background-color: lightgreen;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Syntax for Pype</h1>
-        <p>P|[input] -> prints out [input]</p>
-        <p>Pr|[input] -> prints out [input] in reverse</p>
-        <p>Pri|[input] -> prints out [input] in reverse in reverse</p>
-        <p>Prin|[input] -> prints out [input] in reverse in reverse in reverse</p>
-        <p>Print|[input] -> prints out [input] in reverse in reverse in reverse in reverse</p>
-        <p>+|[input] -> adds up all numerical values separated by a space, e.g. +|2 3 1 -> 6</p>
-        <p>-|[input] -> subtracts all numerical values separated by a space, starting from the initial e.g. -|20 5 10 -> 5</p>
+      <h1>Syntax for Pype</h1>
+      <p>P|[input] -> prints out [input]</p>
+      <p>Pr|[input] -> prints out [input] in reverse</p>
+      <p>Pri|[input] -> prints out [input] in reverse in reverse</p>
+      <p>Prin|[input] -> prints out [input] in reverse in reverse in reverse</p>
+      <p>
+        Print|[input] -> prints out [input] in reverse in reverse in reverse in
+        reverse
+      </p>
+      <p>
+        +|[input] -> adds up all numerical values separated by a space, e.g. +|2
+        3 1 -> 6
+      </p>
+      <p>
+        -|[input] -> subtracts all numerical values separated by a space,
+        starting from the initial e.g. -|20 5 10 -> 5
+      </p>
 
-        <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
-            <a href="index.html" style="justify-content: center;">
-                <button type="button">Back</button>
-            </a>
-        </div>
+      <div style="display: flex; justify-content: center; margin-top: 1.5rem">
+        <a href="index.html" style="justify-content: center">
+          <button type="button">Back</button>
+        </a>
+      </div>
     </div>
-</body>
+  </body>
 </html>
