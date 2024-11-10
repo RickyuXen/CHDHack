@@ -1,247 +1,105 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
-# ascii_alphabet = {
-#     'A': [
-#         [0, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 1],
-#         [1, 1, 1, 1, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1]
-#     ],
-#     'B': [
-#         [1, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 1],
-#         [1, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 1],
-#         [1, 1, 1, 1, 0]
-#     ],
-#     'C': [
-#         [0, 1, 1, 1, 1],
-#         [1, 0, 0, 0, 0],
-#         [1, 0, 0, 0, 0],
-#         [1, 0, 0, 0, 0],
-#         [0, 1, 1, 1, 1]
-#     ],
-#     'D': [
-#         [1, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 1, 1, 1, 0]
-#     ],
-#     'E': [
-#         [1, 1, 1, 1, 1],
-#         [1, 0, 0, 0, 0],
-#         [1, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 0],
-#         [1, 1, 1, 1, 1]
-#     ],
-#     'F': [
-#         [1, 1, 1, 1, 1],
-#         [1, 0, 0, 0, 0],
-#         [1, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 0],
-#         [1, 0, 0, 0, 0]
-#     ],
-#     'G': [
-#         [0, 1, 1, 1, 1],
-#         [1, 0, 0, 0, 0],
-#         [1, 0, 1, 1, 1],
-#         [1, 0, 0, 0, 1],
-#         [0, 1, 1, 1, 1]
-#     ],
-#     'H': [
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 1, 1, 1, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1]
-#     ],
-#     'I': [
-#         [1, 1, 1, 1, 1],
-#         [0, 0, 1, 0, 0],
-#         [0, 0, 1, 0, 0],
-#         [0, 0, 1, 0, 0],
-#         [1, 1, 1, 1, 1]
-#     ],
-#     'J': [
-#         [0, 0, 1, 1, 1],
-#         [0, 0, 0, 0, 1],
-#         [0, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [0, 1, 1, 1, 0]
-#     ],
-#     'K': [
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 1, 0],
-#         [1, 1, 1, 0, 0],
-#         [1, 0, 0, 1, 0],
-#         [1, 0, 0, 0, 1]
-#     ],
-#     'L': [
-#         [1, 0, 0, 0, 0],
-#         [1, 0, 0, 0, 0],
-#         [1, 0, 0, 0, 0],
-#         [1, 0, 0, 0, 0],
-#         [1, 1, 1, 1, 1]
-#     ],
-#     'M': [
-#         [1, 0, 0, 0, 1],
-#         [1, 1, 0, 1, 1],
-#         [1, 0, 1, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1]
-#     ],
-#     'N': [
-#         [1, 0, 0, 0, 1],
-#         [1, 1, 0, 0, 1],
-#         [1, 0, 1, 0, 1],
-#         [1, 0, 0, 1, 1],
-#         [1, 0, 0, 0, 1]
-#     ],
-#     'O': [
-#         [0, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [0, 1, 1, 1, 0]
-#     ],
-#     'P': [
-#         [1, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 1],
-#         [1, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 0],
-#         [1, 0, 0, 0, 0]
-#     ],
-#     'Q': [
-#         [0, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 1, 0, 1],
-#         [0, 1, 1, 1, 1]
-#     ],
-#     'R': [
-#         [1, 1, 1, 1, 0],
-#         [1, 0, 0, 0, 1],
-#         [1, 1, 1, 1, 0],
-#         [1, 0, 1, 0, 0],
-#         [1, 0, 0, 1, 0]
-#     ],
-#     'S': [
-#         [0, 1, 1, 1, 1],
-#         [1, 0, 0, 0, 0],
-#         [0, 1, 1, 1, 0],
-#         [0, 0, 0, 0, 1],
-#         [1, 1, 1, 1, 0]
-#     ],
-#     'T': [
-#         [1, 1, 1, 1, 1],
-#         [0, 0, 1, 0, 0],
-#         [0, 0, 1, 0, 0],
-#         [0, 0, 1, 0, 0],
-#         [0, 0, 1, 0, 0]
-#     ],
-#     'U': [
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [0, 1, 1, 1, 0]
-#     ],
-#     'V': [
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [0, 1, 0, 1, 0],
-#         [0, 0, 1, 0, 0]
-#     ],
-#     'W': [
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 0, 0, 1],
-#         [1, 0, 1, 0, 1],
-#         [1, 1, 0, 1, 1],
-#         [1, 0, 0, 0, 1]
-#     ],
-#     'X': [
-#         [1, 0, 0, 0, 1],
-#         [0, 1, 0, 1, 0],
-#         [0, 0, 1, 0, 0],
-#         [0, 1, 0, 1, 0],
-#         [1, 0, 0, 0, 1]
-#     ],
-#     'Y': [
-#         [1, 0, 0, 0, 1],
-#         [0, 1, 0, 1, 0],
-#         [0, 0, 1, 0, 0],
-#         [0, 0, 1, 0, 0],
-#         [0, 0, 1, 0, 0]
-#     ],
-#     'Z': [
-#         [1, 1, 1, 1, 1],
-#         [0, 0, 0, 1, 0],
-#         [0, 0, 1, 0, 0],
-#         [0, 1, 0, 0, 0],
-#         [1, 1, 1, 1, 1]
-#     ]
-# }
-
+import re
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # This will allow all origins by default
 
-# initialize main class
+# Global variable to store variables
+vars = ["Why did you try to get the 0th index?"]
+
+# main class
 class Lang:
     def __init__(self):
         self.command = ""
     
-    # define parser
+    # initialize parser
     def parse_code(self, code):
+        # tokenize input
         self.command = code.split("|")
 
-
+    #initialize interpreter
     def interpret_code(self, code):
+        # call parser
         self.parse_code(code)
         com = self.command[0]
         
+        # if less than 2 tokens
         if len(self.command) < 2:
             return "Error: Invalid input. Please check syntax page to ensure you have done it correctly."
+        # if more than 2 tokens
         elif len(self.command) > 2:
             return "Error: '|' is not a valid character to use"
-        
+
         match com:
-            # print
+            # print function
             case "P":
                 return self.command[1]
-            # print reverse
+            # print reverse function
             case "Pr":
                 return self.command[1][::-1]
-            # print reverse reverse
+            # print reverse reverse function
             case "Pri":
                 return self.command[1][::-1][::-1]
-            # print reverse reverse reverse
+            # print reverse reverse reverse function
             case "Prin": 
                 return self.command[1][::-1][::-1][::-1]
-            # print reverse reverse reverse reverse
+            #print reverse reverse reverse reverse function
             case "Print": 
                 return self.command[1][::-1][::-1][::-1][::-1]
-            # add/sum
+            # addition function
             case "+":
-                values = self.command[1].split(' ')
+                values = self.command[1].strip().split(' ')
                 casted = [int(val) for val in values]
                 return sum(casted)
-            # subtract
+            # subtraction function
             case "-":
-                values = self.command[1].split(' ')
+                values = self.command[1].strip().split(' ')
                 casted = [int(val) for val in values]
                 result = casted[0]
                 for i in range(1, len(casted)):
                     result -= casted[i]
                 return result
+            # multiplication function
+            case "*":
+                values = self.command[1].strip().split(' ')
+                casted = [int(val) for val in values]
+                result = casted[0]
+                for i in range(1, len(casted)):
+                    result *= casted[i]
+                return result
+            # division function
+            case "/":
+                values = self.command[1].strip().split(' ')
+                casted = [int(val) for val in values]
+                result = casted[0]
+                for i in range(1, len(casted)):
+                    result /= casted[i]
+                return result
+            # store function
+            case "S":  
+                # Store variable in list
+                vars.append(self.command[1])
+                return f"Successfully stored value in variable slot {len(vars) - 1}"
+            # call list of stored values
+            case "SS":
+                if(len(vars) == 1):
+                    return "There are no variables stored ..."
+                else:
+                    return vars[1:]
+            # call stored object function
+            case command if (match := re.match(r"S(\d+)", command)):
+            # Extract the index number
+                varNumber = int(match.group(1))
+                if 0 <= varNumber < len(vars):
+                    return f"The variable stored at memory {varNumber}: {vars[varNumber]}"
+                else:
+                    return f"Error: No variable found at slot {varNumber}"
             case _:
                 return "Error: Unknown command. Please check syntax page to ensure you have done it correctly."
 
+# flask
 @app.route('/process', methods=['POST'])
 def process_code():
     data = request.get_json()
