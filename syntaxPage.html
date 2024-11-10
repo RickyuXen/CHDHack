@@ -13,7 +13,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
+            background-color: #3e566c;
             color: #333;
             display: flex;
             justify-content: center;
@@ -37,6 +37,7 @@
             font-size: 2.5rem;
             color: #5f6368;
             margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         p {
@@ -47,10 +48,12 @@
         }
 
         button {
+            justify-content: center;
+            align-items: center;
             margin: 0.5rem;
             padding: 0.5rem 1.5rem;
             font-size: 2rem;
-            background-color: #4CAF50;
+            background-color: green;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -59,7 +62,7 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: lightgreen;
         }
     </style>
 </head>
@@ -74,9 +77,11 @@
         <p>+|[input] -> adds up all numerical values separated by a space, e.g. +|2 3 1 -> 6</p>
         <p>-|[input] -> subtracts all numerical values separated by a space, starting from the initial e.g. -|20 5 10 -> 5</p>
 
-        <a href="index.html">
-            <button type="button">Back</button>
-        </a>
+        <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
+            <a href="index.html" style="justify-content: center;">
+                <button type="button">Back</button>
+            </a>
+        </div>
     </div>
 </body>
 </html>
