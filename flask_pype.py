@@ -9,7 +9,7 @@ CORS(app)  # This will allow all origins by default
 # Global variable to store variables
 vars = ["Why did you try to get the 0th index?"]
 
-# Your Lang class
+# Lang class
 class Lang:
     def __init__(self):
         self.command = ""
@@ -56,7 +56,6 @@ class Lang:
                 # Store variable in list
                 vars.append(self.command[1])
                 return f"Successfully stored value in variable slot {len(vars) - 1}"
-            # How are we going to extract S(#)?
             case command if (match := re.match(r"S(\d+)", command)):
             # Extract the index number
                 varNumber = int(match.group(1))
