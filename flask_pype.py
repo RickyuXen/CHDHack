@@ -23,7 +23,7 @@ class Lang:
     def interpret_code(self, code):
         # call parser
         self.parse_code(code)
-        com = self.command[0].strip()
+        com = self.command[0]
         
         # if less than 2 tokens
         if len(self.command) < 2:
@@ -31,9 +31,6 @@ class Lang:
         # if more than 2 tokens
         elif len(self.command) > 2:
             return "Error: '|' is not a valid character to use"
-        
-        # trim off blank spaces from front and end
-        self.command[1].strip()
 
         match com:
             # print function
@@ -74,7 +71,7 @@ class Lang:
                 return result
             # division function
             case "/":
-                values = self.command[1].split(' ')
+                values = self.command[1].strip().split(' ')
                 casted = [int(val) for val in values]
                 result = casted[0]
                 for i in range(1, len(casted)):
