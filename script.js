@@ -1,7 +1,7 @@
 document.getElementById('command-form').addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    const commandInput = document.getElementById('command-input').value.trim();
+    const commandInput = document.getElementById('command-input').value;
     
     if (!commandInput) {
         alert("Please enter a valid command.");
