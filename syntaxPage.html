@@ -29,10 +29,14 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         width: 100%;
         max-width: 600px;
+        max-height: 60vh;
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
       }
-
+      .container {
+        overflow-y: auto;
+      }
       h1 {
         font-size: 2.5rem;
         color: #5f6368;
@@ -69,22 +73,35 @@
   <body>
     <div class="container">
       <h1>Syntax for Pype</h1>
-      <p>P|[input] -> prints out [input]</p>
-      <p>Pr|[input] -> prints out [input] in reverse</p>
-      <p>Pri|[input] -> prints out [input] in reverse in reverse</p>
-      <p>Prin|[input] -> prints out [input] in reverse in reverse in reverse</p>
-      <p>
-        Print|[input] -> prints out [input] in reverse in reverse in reverse in
-        reverse
-      </p>
-      <p>
-        +|[input] -> adds up all numerical values separated by a space, e.g. +|2
-        3 1 -> 6
-      </p>
-      <p>
-        -|[input] -> subtracts all numerical values separated by a space,
-        starting from the initial e.g. -|20 5 10 -> 5
-      </p>
+      <div class="syntax_box">
+        <p>P|[input] -> prints out [input]</p>
+        <p>Pr|[input] -> prints out [input] in reverse</p>
+        <p>Pri|[input] -> prints out [input] in reverse in reverse</p>
+        <p>Prin|[input] -> prints out [input] in reverse in reverse in reverse</p>
+        <p>
+            Print|[input] -> prints out [input] in reverse in reverse in reverse in
+            reverse
+        </p>
+        <p>
+            +|[input] -> adds up all numerical values separated by a space, e.g. +|2
+            3 1 -> 6
+        </p>
+        <p>
+            -|[input] -> subtracts all numerical values separated by a space,
+            starting from the initial e.g. -|20 5 10 -> 5
+        </p>
+        <p>
+            *|[input] -> multiplies all numerical values separated by a space,
+            starting from the initial e.g. *|3 2 2 -> 12
+        </p>
+        <p>
+            /|[input] -> divides all numerical values separated by a space,
+            starting from the initial e.g. /|12 2 3 -> 2
+        </p>
+        <p>S|[input] -> saves [input]</p>
+        <p>SS| -> prints out all saved [input]</p>
+        <p>S(n)| -> prints out nth value saved</p>
+      </div>
 
       <div style="display: flex; justify-content: center; margin-top: 1.5rem">
         <a href="index.html" style="justify-content: center">
