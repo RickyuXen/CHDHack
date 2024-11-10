@@ -204,7 +204,7 @@ class Lang:
         com = self.command[0]
         
         if len(self.command) < 2:
-            return "Error: Invalid input. Format should be 'P|[input]' or 'Pr|[input]'."
+            return "Error: Invalid input. Please check syntax page to ensure you have done it correctly."
         elif len(self.command) > 2:
             return "Error: '|' is not a valid character to use"
         
